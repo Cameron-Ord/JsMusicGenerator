@@ -1,0 +1,1 @@
+Modularily built JavaScript based music generator for the web/desktop
