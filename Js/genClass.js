@@ -1,24 +1,23 @@
 
-// MusicGenerator.js
+export {MusicGenerator}
 
 class MusicGenerator{
     constructor(){
-        console.log()
+    
+        // Create a synth
+        this.synth = new Tone.Synth().toDestination();
+        console.log(Tone.context.state)
+        console.log(this.synth)
     }
 
-    generateNote() {
-        // Generate a musical note
-        console.log("Note generated");
-      }
-
     playMusic() {
-        // Play a sequence of notes
-        this.generateNote();
-        console.log("Music playing");
-      }
-}
 
-module.exports = {
-    MusicGenerator,
+        // Play a sequence of notes
+        if(Tone.context.state != "running"){
+            Tone.start();
+        }
+        this.synth.triggerAttackRelease("C3", "8n");
+
+      }
 }
 
