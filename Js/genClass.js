@@ -31,14 +31,15 @@ class MusicGenerator{
         }
         return sequence;
     }
-    
+
     playRandom(notesVar, modsVar){
+        this.stopMusic();
         const randomScale = [];
 
         for(let i = 0; i<notesVar.length; i++){
             const randomNoteIndex = Math.floor(Math.random() * notesVar.length);
             const randomModifierIndex = Math.floor(Math.random() * modsVar.length);
-            
+
             const randomNote=notesVar[randomNoteIndex];
             const randomMod=modsVar[randomModifierIndex];
 
@@ -67,6 +68,8 @@ class MusicGenerator{
     }
 
     playMusic() {
+
+        this.stopMusic();
         // Play a sequence of notes
         if(Tone.context.state != "running"){
             Tone.Transport.bpm.value = 220;
@@ -88,8 +91,8 @@ class MusicGenerator{
 
     stopMusic(){
         if(this.currentSequence){
-            Tone.Transport.stop();
             this.currentSequence.stop();
+            this.currentSequence.clear();
         }
     }
 }
