@@ -51,7 +51,7 @@ class MusicGenerator{
         }
 
         if(Tone.context.state != "running"){
-            Tone.Transport.bpm.value = 220;
+            Tone.Transport.bpm.value = 200;
             Tone.start();
         }
         const sequenceLength = 8;
@@ -61,7 +61,7 @@ class MusicGenerator{
                 this.synth.triggerAttackRelease(note, "6n", time);
                 this.noteDisplayElement.textContent = note;
 
-            },sequence, "8n").start(0);
+            },sequence, "8n").start();
 
         Tone.Transport.start();
     }
