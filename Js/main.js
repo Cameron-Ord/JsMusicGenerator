@@ -12,12 +12,16 @@ const choiceToScale = {
     "F#HarmonicMinor": ["F#3", "G#3", "A3", "B3", "C#3", "D3", "F3"],
     "GHarmonicMinor": ["G3", "A3", "Bb3", "C3", "D3", "Eb3", "F#3"],
     "G#HarmonicMinor": ["G#3", "A#3", "B3", "C#3", "D#3", "E3", "G3"],
-
 };
+
+const notes =["C", "D", "E", "F", "G", "A", "B"];
+const modifiers = ["#3","b3", "3"];
+
 const musicGenerator = new MusicGenerator();
 const playBtn = document.querySelector('.playBtn');
 const stopBtn = document.querySelector('.stopBtn');
 const noteBtn = document.querySelector('#scale_choice');
+const randBtn = document.querySelector('.randBtn')
 musicGenerator.choiceToScale = choiceToScale;
 
 playBtn.addEventListener('click', () => {
@@ -28,14 +32,18 @@ stopBtn.addEventListener('click', () => {
     musicGenerator.stopMusic();
 });
 
+randBtn.addEventListener('click', () => {
+    musicGenerator.playRandom(notes, modifiers);
+});
+
 noteBtn.addEventListener('click', (event) => {
     if (event.target.classList.contains("scale_choice_btn")){
         const buttonText = event.target.textContent;
         const formatedText = buttonText.replace(/\s/g, "");
-        
+
         if(formatedText){
             musicGenerator.choice = formatedText;
-            musicGenerator.chooseScale(); 
+            musicGenerator.chooseScale();
         }else{
             console.log("scale not found");
         }

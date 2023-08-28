@@ -30,6 +30,40 @@ class MusicGenerator{
         }
         return sequence;
     }
+    
+    playRandom(notesVar, modsVar){
+        const randomScale = [];
+
+        for(let i = 0; i<notesVar.length; i++){
+            const randomNoteIndex = Math.floor(Math.random() * notesVar.length);
+            const randomModifierIndex = Math.floor(Math.random() * modsVar.length);
+            
+            const randomNote=notesVar[randomNoteIndex];
+            const randomMod=modsVar[randomModifierIndex];
+
+            const combinedNote = randomNote + randomMod;
+            randomScale.push(combinedNote);
+        }
+        console.log(randomScale.length)
+        if(randomScale.length == 7){
+            this.scale = randomScale;
+        }
+
+        if(Tone.context.state != "running"){
+            Tone.Transport.bpm.value = 220;
+            Tone.start();
+        }
+        const sequenceLength = 8;
+        const sequence = this.genMusic(sequenceLength);
+        this.sequenceDisplayElement.textContent = sequence;
+        this.currentSequence = new Tone.Sequence((time, note) => {
+                this.synth.triggerAttackRelease(note, "6n", time);
+                this.noteDisplayElement.textContent = note;
+
+            },sequence, "8n").start(0);
+
+        Tone.Transport.start();
+    }
 
     playMusic() {
         // Play a sequence of notes
