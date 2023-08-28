@@ -4,4 +4,24 @@ header{
     align-items: center;
     min-height: 15vh;
     grid-template-columns: 1fr 1fr;
+
+    >.logo{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        width: 100%;
+
+        >h1{
+
+        }
+    }
+    >.creds{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
 }

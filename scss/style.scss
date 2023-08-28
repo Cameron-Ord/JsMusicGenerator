@@ -1,9 +1,53 @@
 @use 'header';
 @use 'footer';
 
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+}
 
 #pageMain{
     display: grid;
     align-items: center;
     justify-items: center;
+    min-height: 80vh;
+    >section{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        >#scalesWrapper{
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            width: 100%;
+
+        }
+
+        >#controlsWrapper{
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            width: 100%;
+            >#playButton{
+                display: grid;
+                align-items: center;
+                justify-items: center;
+                >span{
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    grid-template-columns: 1fr 1fr;
+                    >button{
+
+                    }
+                }
+            }
+        }
+    }
 }

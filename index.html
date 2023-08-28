@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <span>
-            <h1>Js Music Generator</h1>
+        <span class="logo">
+            <h1>Music Generator</h1>
         </span>
         <span class="creds">
             <a href="" target="_blank">Github</a>
@@ -16,24 +19,42 @@
     </header>
     <main id="pageMain">
         <section>
-            <article id="scale_choice">
-                <span>
-                    <button class="scale_choice_btn">D Harmonic Minor</button>
-                </span>
-            </article>
-            <article id="playButton">
-                <span>
-                    <button class="stopBtn">stop</button>
-                    <button class="playBtn">start</button>
-                </span>
-                <div>
-                    <p id="note_display"></p>
-                    <p id="sequence_display"></p>
-                </div>
-            </article>
+            <div id="scalesWrapper">
+                <article id="scale_choice">
+                    <span>
+                        <button class="scale_choice_btn">D Harmonic Minor</button>
+                    </span>
+                </article>
+            </div>
+            <div id="notesWrapper">
+                <article id="notesDisplay">
+                    <span>
+                            <p id="note_display"></p>
+                            <p id="sequence_display"></p>
+                    </span>
+                </article>
+            </div>
+            <div id="controlsWrapper">
+                <article id="playButton">
+                    <span>
+                        <button class="stopBtn">stop</button>
+                        <button class="playBtn">start</button>
+                    </span>
+                </article>
+            </div>
+
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <span class="createdBy">
+            <h2>Made by Cameron Ord</h2>
+        </span>
+        <span class="credentials">
+            <a href="">Github</a>
+            <a href="">Portfolio</a>
+            <a href="">Linkedin</a>
+        </span>
+    </footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js" integrity="sha512-jduERlz7En1IUZR54bqzpNI64AbffZWR//KJgF71SJ8D8/liKFZ+s1RxmUmB+bhCnIfzebdZsULwOrbVB5f3nQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
