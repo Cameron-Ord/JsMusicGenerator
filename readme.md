@@ -1,1 +1,3 @@
-Modularily built JavaScript based music generator for the web/desktop
+## JS Music Generator
+
+music generator web application/songwriting assistant
