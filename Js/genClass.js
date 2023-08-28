@@ -3,7 +3,6 @@ export {MusicGenerator}
 
 class MusicGenerator{
     constructor(){
-
         // Create a synth
         this.synth = new Tone.Synth().toDestination();
         this.scale = undefined;
@@ -11,16 +10,16 @@ class MusicGenerator{
         this.noteDisplayElement = document.getElementById("note_display");
         this.sequenceDisplayElement = document.getElementById("sequence_display");
         this.choice = undefined;
+        this.choiceToScale = undefined;
     }
 
     chooseScale(){
+        const chosenScale = this.choiceToScale[this.choice];
+        console.log(chosenScale);
 
-        if(this.choice == "DHarmonicMinor"){
-            this.scale = ["D3", "E3", "F3", "G3", "A3", "Bb3", "C#3"];
-        }else if(this.choice == "C#HarmonicMinor"){
-            this.scale = ["C#3", "D#3", "E3", "F#3", "G#3", "A3", "C3"];
+        if(chosenScale){
+            this.scale = chosenScale;
         }
-
     }
 
     genMusic(length){
