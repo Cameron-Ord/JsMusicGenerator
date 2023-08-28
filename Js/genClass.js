@@ -17,6 +17,8 @@ class MusicGenerator{
 
         if(this.choice == "DHarmonicMinor"){
             this.scale = ["D3", "E3", "F3", "G3", "A3", "Bb3", "C#3"];
+        }else if(this.choice == "C#HarmonicMinor"){
+            this.scale = ["C#3", "D#3", "E3", "F#3", "G#3", "A3", "C3"];
         }
 
     }
