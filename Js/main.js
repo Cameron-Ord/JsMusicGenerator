@@ -1,21 +1,21 @@
 import { MusicGenerator } from "./genClass.js";
 const choiceToScale = {
-    "C#HarmonicMinor": ["C#3", "D#3", "E3", "F#3", "G#3", "A3", "C3"],
-    "DHarmonicMinor": ["D3", "E3", "F3", "G3", "A3", "Bb3", "C#3"],
-    "CHarmonicMinor": ["C3", "D3", "Eb3", "F3", "G3", "Ab3", "B3"],
-    "BHarmonicMinor": ["B3", "C#3", "D3", "E3", "F#3", "G3", "A#3"],
-    "A#HarmonicMinor": ["A#3", "C3", "C#3", "D#3", "F3", "F#3", "A3"],
-    "AHarmonicMinor": ["A3", "B3", "C3", "D3", "E3", "F3", "G#3"],
-    "D#HarmonicMinor": ["D#3", "F3", "F#3", "G#3", "A#3", "B3", "D3"],
-    "EHarmonicMinor": ["E3", "F#3", "G3", "A3", "B3", "C3", "D#3"],
-    "FHarmonicMinor": ["F3", "G3", "Ab3", "Bb3", "C3", "Db3", "E3"],
-    "F#HarmonicMinor": ["F#3", "G#3", "A3", "B3", "C#3", "D3", "F3"],
-    "GHarmonicMinor": ["G3", "A3", "Bb3", "C3", "D3", "Eb3", "F#3"],
-    "G#HarmonicMinor": ["G#3", "A#3", "B3", "C#3", "D#3", "E3", "G3"],
+    "C#HarmonicMinor": ["C#", "D#", "E", "F#", "G#", "A", "C"],
+    "DHarmonicMinor": ["D", "E", "F", "G", "A", "Bb", "C#"],
+    "CHarmonicMinor": ["C", "D", "Eb", "F", "G", "Ab", "B"],
+    "BHarmonicMinor": ["B", "C#", "D", "E", "F#", "G", "A#"],
+    "A#HarmonicMinor": ["A#", "C", "C#", "D#", "F", "F#", "A"],
+    "AHarmonicMinor": ["A", "B", "C", "D", "E", "F", "G#"],
+    "D#HarmonicMinor": ["D#", "F", "F#", "G#", "A#", "B", "D"],
+    "EHarmonicMinor": ["E", "F#", "G", "A", "B", "C", "D#"],
+    "FHarmonicMinor": ["F", "G", "Ab", "Bb", "C", "Db", "E"],
+    "F#HarmonicMinor": ["F#", "G#", "A", "B", "C#", "D", "F"],
+    "GHarmonicMinor": ["G", "A", "Bb", "C", "D", "Eb", "F#"],
+    "G#HarmonicMinor": ["G#", "A#", "B", "C#", "D#", "E", "G"],
 };
 
 const notes =["C", "D", "E", "F", "G", "A", "B"];
-const modifiers = ["#3","b3", "3"];
+const modifiers = ["#","b", ""];
 
 const musicGenerator = new MusicGenerator();
 const playBtn = document.querySelector('.playBtn');

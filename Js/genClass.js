@@ -26,7 +26,8 @@ class MusicGenerator{
         const sequence = [];
         for (let i = 0; i < length; i++) {
             const randomNote = this.scale[Math.floor(Math.random() * this.scale.length)];
-            sequence.push(randomNote);
+            const randomOctave = Math.floor(Math.random() * 2) + 3;
+            sequence.push(randomNote + randomOctave);
         }
         return sequence;
     }
