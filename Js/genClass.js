@@ -6,10 +6,21 @@ class MusicGenerator{
 
         // Create a synth
         this.synth = new Tone.Synth().toDestination();
-        this.scale = ["D3", "E3", "F3", "G3", "A3", "Bb3", "C#3"];
+        this.scale = undefined;
         this.currentSequence = null;
         this.noteDisplayElement = document.getElementById("note_display");
         this.sequenceDisplayElement = document.getElementById("sequence_display");
+        this.choice = undefined;
+    }
+
+    chooseScale(){
+        console.log(this.choice);
+
+        if(this.choice == "DHarmonicMinor"){
+            this.scale = ["D3", "E3", "F3", "G3", "A3", "Bb3", "C#3"];
+        }
+
+        console.log(this.scale)
 
     }
 
@@ -36,15 +47,16 @@ class MusicGenerator{
         this.currentSequence = new Tone.Sequence((time, note) => {
                 this.synth.triggerAttackRelease(note, "6n", time);
                 this.noteDisplayElement.textContent = note;
-                
+
             },sequence, "8n").start(0);
-        
+
         Tone.Transport.start();
 
       }
 
     stopMusic(){
         if(this.currentSequence){
+            Tone.Transport.stop();
             this.currentSequence.stop();
         }
     }
