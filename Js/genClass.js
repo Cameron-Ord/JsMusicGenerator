@@ -12,32 +12,30 @@ class MusicGenerator{
     }
 
     genMusic(length){
-        console.log('works');
         const sequence = [];
         for (let i = 0; i < length; i++) {
             const randomNote = this.scale[Math.floor(Math.random() * this.scale.length)];
             sequence.push(randomNote);
         }
-        console.log(sequence);
         return sequence;
     }
 
     playMusic() {
-        console.log('works');
         // Play a sequence of notes
         if(Tone.context.state != "running"){
+            Tone.Transport.bpm.value = 220;
             Tone.start();
         }
+
         const sequenceLength = 8;
         const sequence = this.genMusic(sequenceLength);
         console.log(sequence);
-        
+
         this.currentSequence = new Tone.Sequence((time, note) => {
                 this.synth.triggerAttackRelease(note, "6n", time);
-            },sequence, "16n").start(0);
+            },sequence, "8n").start(0);
 
         Tone.Transport.start();
-        console.log(this.currentSequence);
 
       }
 }
