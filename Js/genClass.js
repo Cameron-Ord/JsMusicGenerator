@@ -38,5 +38,11 @@ class MusicGenerator{
         Tone.Transport.start();
 
       }
+
+    stopMusic(){
+        if(this.currentSequence){
+            this.currentSequence.stop();
+        }
+    }
 }
 

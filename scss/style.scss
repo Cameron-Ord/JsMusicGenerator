@@ -1,0 +1,9 @@
+@use 'header';
+@use 'footer';
+
+
+#pageMain{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
