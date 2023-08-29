@@ -55,9 +55,12 @@ class MusicGenerator{
             Tone.Transport.bpm.value = 200;
             Tone.start();
         }
-        const sequenceLength = 8;
+        const sequenceLength = 12;
         const sequence = this.genMusic(sequenceLength);
-        this.sequenceDisplayElement.textContent = sequence;
+        const formattedSequence = sequence.join('\n');
+        const holder = formattedSequence.toString();
+        this.sequenceDisplayElement.textContent = holder;
+        console.log(this.sequenceDisplayElement.textContent);
         this.currentSequence = new Tone.Sequence((time, note) => {
                 this.synth.triggerAttackRelease(note, "6n", time);
                 this.noteDisplayElement.textContent = note;
@@ -76,9 +79,11 @@ class MusicGenerator{
             Tone.start();
         }
 
-        const sequenceLength = 8;
+        const sequenceLength = 12;
         const sequence = this.genMusic(sequenceLength);
-        this.sequenceDisplayElement.textContent = sequence;
+        const formattedSequence = sequence.join('\n');
+        const holder = formattedSequence.toString();
+        this.sequenceDisplayElement.textContent = holder;
         this.currentSequence = new Tone.Sequence((time, note) => {
                 this.synth.triggerAttackRelease(note, "6n", time);
                 this.noteDisplayElement.textContent = note;
