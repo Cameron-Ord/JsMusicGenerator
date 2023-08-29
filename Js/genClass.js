@@ -7,7 +7,7 @@ class MusicGenerator{
         const limiter = new Tone.Limiter(-50);
         const freeverb = new Tone.Freeverb();
         freeverb.dampening = 800;
-        const dist = new Tone.Distortion(0.75);
+        const dist = new Tone.Distortion(0.85);
         const lowPassFilter = new Tone.Filter(12000, "lowpass");
 
         this.synth = new Tone.MonoSynth({
@@ -125,7 +125,7 @@ class MusicGenerator{
         this.stopMusic();
         // Play a sequence of notes
         if(Tone.context.state != "running"){
-            Tone.Transport.bpm.value = 200;
+            Tone.Transport.bpm.value = 180;
             Tone.start();
         }
 
