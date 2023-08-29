@@ -3,6 +3,20 @@ export {MusicGenerator}
 
 class MusicGenerator{
     constructor(){
+
+        this.synth.volume.value = -40;
+        this.scale = undefined;
+        this.currentSequence = null;
+        this.noteDisplayElement = document.getElementById("note_display");
+        this.sequenceDisplayElement = document.getElementById("sequence_display");
+        this.chosenDisplayElement = document.getElementById("chosenScale");
+        this.choice = undefined;
+        this.choiceToScale = undefined;
+        this.init();
+    }
+
+    init(){
+
         // Create a synth
         const limiter = new Tone.Limiter(-20);
         const freeverb = new Tone.Freeverb();
@@ -27,19 +41,7 @@ class MusicGenerator{
         lowPassFilter1600.connect(freeverb);
         freeverb.connect(limiter);
         limiter.toDestination();
-
-        this.synth.volume.value = -40;
-        this.scale = undefined;
-        this.currentSequence = null;
-        this.noteDisplayElement = document.getElementById("note_display");
-        this.sequenceDisplayElement = document.getElementById("sequence_display");
-        this.chosenDisplayElement = document.getElementById("chosenScale");
-        this.choice = undefined;
-        this.choiceToScale = undefined;
-        this.init();
-    }
-
-    init(){
+        
         if(this.sequenceDisplayElement.textContent === ""){
             this.sequenceDisplayElement.style.display = "none";
         }else{
