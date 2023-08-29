@@ -4,27 +4,31 @@ export {MusicGenerator}
 class MusicGenerator{
     constructor(){
         // Create a synth
-        const limiter = new Tone.Limiter(-50);
+        const limiter = new Tone.Limiter(-20);
         const freeverb = new Tone.Freeverb();
         freeverb.dampening = 800;
         const dist = new Tone.Distortion(0.85);
-        const lowPassFilter = new Tone.Filter(12000, "lowpass");
-
+        const lowPassFilter1200 = new Tone.Filter(12000, "lowpass");
+        const lowPassFilter1600 = new Tone.Filter(16000, "lowpass");
         this.synth = new Tone.MonoSynth({
             oscillator: {
                 type: "sawtooth"
             },
             envelope: {
-                attack: 0.25
+                attack: 0.25,
+                decay: 0.2,
+                sustain: 0.5,
+                release: 0.8
             }
         });
         this.synth.connect(dist);
-        dist.connect(lowPassFilter);
-        lowPassFilter.connect(freeverb);
+        dist.connect(lowPassFilter1200);
+        lowPassFilter1200.connect(lowPassFilter1600);
+        lowPassFilter1600.connect(freeverb);
         freeverb.connect(limiter);
         limiter.toDestination();
 
-        this.synth.volume.value = -20; 
+        this.synth.volume.value = -40;
         this.scale = undefined;
         this.currentSequence = null;
         this.noteDisplayElement = document.getElementById("note_display");

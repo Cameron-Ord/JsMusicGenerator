@@ -21,7 +21,7 @@ const musicGenerator = new MusicGenerator();
 const playBtn = document.querySelector('.playBtn');
 const stopBtn = document.querySelector('.stopBtn');
 const noteBtn = document.querySelector('#scale_choice');
-const randBtn = document.querySelector('.randBtn')
+const randBtn = document.querySelector('.randBtn');
 musicGenerator.choiceToScale = choiceToScale;
 
 playBtn.addEventListener('click', () => {
