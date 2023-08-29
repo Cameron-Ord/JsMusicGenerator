@@ -4,7 +4,27 @@ export {MusicGenerator}
 class MusicGenerator{
     constructor(){
         // Create a synth
-        this.synth = new Tone.Synth().toDestination();
+        const limiter = new Tone.Limiter(-50);
+        const freeverb = new Tone.Freeverb();
+        freeverb.dampening = 800;
+        const dist = new Tone.Distortion(0.75);
+        const lowPassFilter = new Tone.Filter(12000, "lowpass");
+
+        this.synth = new Tone.MonoSynth({
+            oscillator: {
+                type: "sawtooth"
+            },
+            envelope: {
+                attack: 0.25
+            }
+        });
+        this.synth.connect(dist);
+        dist.connect(lowPassFilter);
+        lowPassFilter.connect(freeverb);
+        freeverb.connect(limiter);
+        limiter.toDestination();
+
+        this.synth.volume.value = -20; 
         this.scale = undefined;
         this.currentSequence = null;
         this.noteDisplayElement = document.getElementById("note_display");
@@ -49,7 +69,7 @@ class MusicGenerator{
         if(this.scale !== undefined){
         for (let i = 0; i < length; i++) {
             const randomNote = this.scale[Math.floor(Math.random() * this.scale.length)];
-            const randomOctave = Math.floor(Math.random() * 2) + 3;
+            const randomOctave = Math.floor(Math.random() * 3) + 3;
             sequence.push(randomNote + randomOctave);
         }
             return sequence;
