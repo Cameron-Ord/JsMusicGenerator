@@ -4,7 +4,7 @@ export {MusicGenerator}
 class MusicGenerator{
     constructor(){
 
-        this.synth.volume.value = -40;
+        
         this.scale = undefined;
         this.currentSequence = null;
         this.noteDisplayElement = document.getElementById("note_display");
@@ -41,7 +41,8 @@ class MusicGenerator{
         lowPassFilter1600.connect(freeverb);
         freeverb.connect(limiter);
         limiter.toDestination();
-        
+        this.synth.volume.value = -40;
+
         if(this.sequenceDisplayElement.textContent === ""){
             this.sequenceDisplayElement.style.display = "none";
         }else{
