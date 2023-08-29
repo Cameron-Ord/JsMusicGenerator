@@ -9,27 +9,53 @@ class MusicGenerator{
         this.currentSequence = null;
         this.noteDisplayElement = document.getElementById("note_display");
         this.sequenceDisplayElement = document.getElementById("sequence_display");
+        this.chosenDisplayElement = document.getElementById("chosenScale");
         this.choice = undefined;
         this.choiceToScale = undefined;
+        this.init();
+    }
+
+    init(){
+        if(this.sequenceDisplayElement.textContent === ""){
+            this.sequenceDisplayElement.style.display = "none";
+        }else{
+            this.sequenceDisplayElement.style.display = "grid";
+
+        }
+
+        if(this.noteDisplayElement.textContent === ""){
+            this.noteDisplayElement.style.display = "none";
+        }else{
+            this.noteDisplayElement.style.display = "grid";
+
+        }
     }
 
     chooseScale(){
         const chosenScale = this.choiceToScale[this.choice];
-        console.log(chosenScale);
 
         if(chosenScale){
             this.scale = chosenScale;
         }
+        const formatedChoice = this.choice
+        .replace(/([A-Z])/g, ' $1');
+        this.chosenDisplayElement.textContent = formatedChoice;
+
+
     }
 
     genMusic(length){
         const sequence = [];
+        if(this.scale !== undefined){
         for (let i = 0; i < length; i++) {
             const randomNote = this.scale[Math.floor(Math.random() * this.scale.length)];
             const randomOctave = Math.floor(Math.random() * 2) + 3;
             sequence.push(randomNote + randomOctave);
         }
-        return sequence;
+            return sequence;
+        } else {
+            console.log("scale not chosen");
+        }
     }
 
     playRandom(notesVar, modsVar){
@@ -46,25 +72,29 @@ class MusicGenerator{
             const combinedNote = randomNote + randomMod;
             randomScale.push(combinedNote);
         }
-        console.log(randomScale.length)
         if(randomScale.length == 7){
             this.scale = randomScale;
         }
 
         if(Tone.context.state != "running"){
-            Tone.Transport.bpm.value = 200;
+            Tone.Transport.bpm.value = 180;
             Tone.start();
         }
         const sequenceLength = 12;
         const sequence = this.genMusic(sequenceLength);
         const formattedSequence = sequence.join('\n');
         const holder = formattedSequence.toString();
+
         this.sequenceDisplayElement.textContent = holder;
-        console.log(this.sequenceDisplayElement.textContent);
+        if(this.sequenceDisplayElement.textContent){
+            this.sequenceDisplayElement.style.display = "grid";
+        }
         this.currentSequence = new Tone.Sequence((time, note) => {
                 this.synth.triggerAttackRelease(note, "6n", time);
                 this.noteDisplayElement.textContent = note;
-
+                if(this.noteDisplayElement.textContent){
+                    this.noteDisplayElement.style.display = "grid";
+                }
             },sequence, "8n").start();
 
         Tone.Transport.start();
@@ -75,7 +105,7 @@ class MusicGenerator{
         this.stopMusic();
         // Play a sequence of notes
         if(Tone.context.state != "running"){
-            Tone.Transport.bpm.value = 220;
+            Tone.Transport.bpm.value = 200;
             Tone.start();
         }
 
@@ -83,12 +113,20 @@ class MusicGenerator{
         const sequence = this.genMusic(sequenceLength);
         const formattedSequence = sequence.join('\n');
         const holder = formattedSequence.toString();
+
         this.sequenceDisplayElement.textContent = holder;
+
+        if(this.sequenceDisplayElement.textContent){
+            this.sequenceDisplayElement.style.display = "grid";
+        }
         this.currentSequence = new Tone.Sequence((time, note) => {
                 this.synth.triggerAttackRelease(note, "6n", time);
                 this.noteDisplayElement.textContent = note;
+                if(this.noteDisplayElement.textContent){
+                    this.noteDisplayElement.style.display = "grid";
+                }
 
-            },sequence, "8n").start(0);
+            },sequence, "8n").start();
 
         Tone.Transport.start();
 

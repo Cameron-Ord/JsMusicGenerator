@@ -15,6 +15,8 @@ body{
     align-items: center;
     justify-items: center;
     min-height: 80vh;
+    margin-top: 50px;
+    margin-bottom: 50px;
     >section{
         display: grid;
         align-items: center;
@@ -22,6 +24,7 @@ body{
         width: 100%;
         grid-auto-flow: row;
         row-gap: 50px;
+
 
         >#notesWrapper{
             display: grid;
@@ -42,19 +45,20 @@ body{
                     text-align: center;
                     grid-template-rows: 1fr 1fr;
                     width: 50%;
-                    
+
                     >#sequence_display{
                     width: 50%;
                     color: #f8f9fa;
                     background-color: #343a40;
                     padding: 5px;
                     border-radius: 5px;
+                    margin: 5px;
                     }
                     >#note_display{
-
+                    margin: 5px;
                     font-size: 1.5em;
-                    color: #f8f9fa;
-                    background-color: #343a40;
+                    color: #212529;
+                    background-color: #c77dff;
                     padding: 5px;
                     border-radius: 5px;
 
@@ -68,16 +72,70 @@ body{
             align-items: center;
             justify-items: center;
             width: 100%;
+            grid-auto-flow: row;
+            row-gap: 25px;
+            >.displayChosen{
+                display: grid;
+                align-items: center;
+                justify-items: center;
+                >span{
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    >div{
+                        display: grid;
+                        align-items: center;
+                        justify-items: center;
+                        grid-auto-flow: row;
+                        row-gap: 15px;
+                        >p{
+                            color: #212529;
+                            background-color: #c77dff;
+                            padding: 5px;
+                            border-radius: 5px;
+                            font-size: 1.1em;
+                        }
+                        >h4{
+                            color: #f8f9fa;
+                            padding: 5px;
+                            border-radius: 5px;
+                            background-color: #343a40;
+                            font-size: 1.75em;
 
+                        }
+                    }
+                }
+            }
             >#scale_choice{
+                display: grid;
+                align-items: center;
+                justify-items: center;
+                width: 100%;
 
                 >span{
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+                    width: 80%;
 
                     >div{
+                        display: grid;
+                        align-items: center;
+                        justify-items: center;
+                        text-align: center;
+                        margin: 5px;
 
                         >h3{
-
+                            margin-left: 5px;
+                            margin-right: 5px;
+                            margin: 5px;
+                            background-color: #343a40;
+                            padding: 5px;
+                            border-radius: 5px;
+                            cursor: pointer;
                             color: #f8f9fa;
+                            width: 100px;
                         }
                     }
                 }
@@ -118,4 +176,68 @@ body{
             }
         }
     }
+}
+
+@media only screen and (min-width: 1024px){
+    #pageMain{
+
+        >section{
+
+            >#notesWrapper{
+
+
+                >#notesDisplay{
+
+
+                    >span{
+
+
+                        >#sequence_display{
+                            width: 20%;
+                        }
+                        >#note_display{
+
+
+                        }
+                    }
+                }
+            }
+
+            >#scalesWrapper{
+
+                >#scale_choice{
+
+                    >span{
+
+                        width: 40%;
+
+                        >div{
+
+                            >h3{
+
+
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            >#controlsWrapper{
+
+                >#playButton{
+
+                    >span{
+                        width: 25%;
+
+                        >h3{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
 }

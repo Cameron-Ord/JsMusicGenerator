@@ -2,23 +2,40 @@ header {
   justify-items: center;
   display: grid;
   align-items: center;
-  min-height: 15vh;
+  min-height: 10vh;
   grid-template-columns: 1fr 1fr;
+  background-color: #212529;
 }
 header > .logo {
   display: grid;
   align-items: center;
   justify-items: center;
   text-align: center;
-  width: 100%;
+  width: 90%;
+}
+header > .logo > h1 {
+  margin: 5px;
+  font-size: 1.25em;
+  color: #f8f9fa;
+  background-color: #343a40;
+  padding: 5px;
+  border-radius: 5px;
 }
 header > .creds {
   display: grid;
   align-items: center;
   justify-items: center;
   text-align: center;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+}
+header > .creds > a {
+  margin: 5px;
+  text-decoration: none;
+  color: #212529;
+  background-color: #c77dff;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 footer {
@@ -35,15 +52,31 @@ footer > .createdBy {
   justify-items: center;
   text-align: center;
   font-size: 0.85em;
-  width: 70%;
+  width: 80%;
+}
+footer > .createdBy > h2 {
+  color: #f8f9fa;
+  font-size: 1.5em;
+  background-color: #343a40;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
 }
 footer > .credentials {
   display: grid;
   align-items: center;
   justify-items: center;
   text-align: center;
-  width: 70%;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+}
+footer > .credentials > a {
+  margin: 5px;
+  color: #212529;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #c77dff;
 }
 
 * {
@@ -60,6 +93,8 @@ body {
   align-items: center;
   justify-items: center;
   min-height: 80vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 #pageMain > section {
   display: grid;
@@ -95,11 +130,13 @@ body {
   background-color: #343a40;
   padding: 5px;
   border-radius: 5px;
+  margin: 5px;
 }
 #pageMain > section > #notesWrapper > #notesDisplay > span > #note_display {
+  margin: 5px;
   font-size: 1.5em;
-  color: #f8f9fa;
-  background-color: #343a40;
+  color: #212529;
+  background-color: #c77dff;
   padding: 5px;
   border-radius: 5px;
 }
@@ -108,9 +145,70 @@ body {
   align-items: center;
   justify-items: center;
   width: 100%;
+  grid-auto-flow: row;
+  row-gap: 25px;
+}
+#pageMain > section > #scalesWrapper > .displayChosen {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+#pageMain > section > #scalesWrapper > .displayChosen > span {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+#pageMain > section > #scalesWrapper > .displayChosen > span > div {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-auto-flow: row;
+  row-gap: 15px;
+}
+#pageMain > section > #scalesWrapper > .displayChosen > span > div > p {
+  color: #212529;
+  background-color: #c77dff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+#pageMain > section > #scalesWrapper > .displayChosen > span > div > h4 {
+  color: #f8f9fa;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #343a40;
+  font-size: 1.75em;
+}
+#pageMain > section > #scalesWrapper > #scale_choice {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+#pageMain > section > #scalesWrapper > #scale_choice > span {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  width: 80%;
+}
+#pageMain > section > #scalesWrapper > #scale_choice > span > div {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  margin: 5px;
 }
 #pageMain > section > #scalesWrapper > #scale_choice > span > div > h3 {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin: 5px;
+  background-color: #343a40;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
   color: #f8f9fa;
+  width: 100px;
 }
 #pageMain > section > #controlsWrapper {
   display: grid;
@@ -141,6 +239,18 @@ body {
   border-radius: 5px;
   width: 75px;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) {
+  #pageMain > section > #notesWrapper > #notesDisplay > span > #sequence_display {
+    width: 20%;
+  }
+  #pageMain > section > #scalesWrapper > #scale_choice > span {
+    width: 40%;
+  }
+  #pageMain > section > #controlsWrapper > #playButton > span {
+    width: 25%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
