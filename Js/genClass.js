@@ -4,7 +4,6 @@ export {MusicGenerator}
 class MusicGenerator{
     constructor(){
 
-        
         this.scale = undefined;
         this.currentSequence = null;
         this.noteDisplayElement = document.getElementById("note_display");

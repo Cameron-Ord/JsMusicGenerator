@@ -125,6 +125,7 @@ body {
   width: 50%;
 }
 #pageMain > section > #notesWrapper > #notesDisplay > span > #sequence_display {
+  display: none;
   width: 50%;
   color: #f8f9fa;
   background-color: #343a40;
@@ -139,6 +140,7 @@ body {
   background-color: #c77dff;
   padding: 5px;
   border-radius: 5px;
+  display: none;
 }
 #pageMain > section > #scalesWrapper {
   display: grid;
@@ -237,13 +239,16 @@ body {
   background-color: #343a40;
   padding: 5px;
   border-radius: 5px;
-  width: 75px;
   cursor: pointer;
 }
 
 @media only screen and (min-width: 1024px) {
   #pageMain > section > #notesWrapper > #notesDisplay > span > #sequence_display {
     width: 20%;
+    display: none;
+  }
+  #pageMain > section > #notesWrapper > #notesDisplay > span > #note_display {
+    display: none;
   }
   #pageMain > section > #scalesWrapper > #scale_choice > span {
     width: 40%;
