@@ -1,6 +1,4 @@
 ## JS Music Generator
 
-music generator web application/songwriting assistant
-
-
+messing around with tone.js
 ## https://music-generator.cameron-ord.online/
